@@ -1,3 +1,8 @@
 streamlit
 pandas
 numpy
+requests
+fastapi
+uvicorn
+opencv-python-headless
+ultralytics

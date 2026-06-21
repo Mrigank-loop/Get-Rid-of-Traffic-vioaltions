@@ -12,7 +12,7 @@ st.markdown(
     """
     <style>
     .stApp {
-        background: radial-gradient(circle at top left, #1e3a8a 0%, #020617 35%, #0f172a 100%);
+        background: radial-gradient(circle at top left, #1e3a8a 0%, #020617 38%, #0f172a 100%);
         color: white;
     }
 
@@ -22,11 +22,11 @@ st.markdown(
     }
 
     .hero {
-        padding: 34px;
-        border-radius: 26px;
+        padding: 35px;
+        border-radius: 28px;
         background: linear-gradient(135deg, rgba(37,99,235,0.95), rgba(15,23,42,0.95));
         border: 1px solid rgba(125,211,252,0.35);
-        box-shadow: 0px 20px 50px rgba(0,0,0,0.35);
+        box-shadow: 0px 22px 55px rgba(0,0,0,0.38);
         margin-bottom: 25px;
     }
 
@@ -41,6 +41,7 @@ st.markdown(
         font-size: 18px;
         color: #dbeafe;
         max-width: 950px;
+        line-height: 1.6;
     }
 
     .badge {
@@ -57,7 +58,7 @@ st.markdown(
     .glass-card {
         padding: 22px;
         border-radius: 22px;
-        background: rgba(15,23,42,0.78);
+        background: rgba(15,23,42,0.82);
         border: 1px solid rgba(148,163,184,0.22);
         box-shadow: 0px 12px 35px rgba(0,0,0,0.25);
         min-height: 135px;
@@ -85,7 +86,7 @@ st.markdown(
     .section-box {
         padding: 24px;
         border-radius: 22px;
-        background: rgba(15,23,42,0.82);
+        background: rgba(15,23,42,0.84);
         border: 1px solid rgba(148,163,184,0.22);
         box-shadow: 0px 12px 35px rgba(0,0,0,0.20);
         margin-bottom: 18px;
@@ -206,7 +207,8 @@ st.markdown(
         <h1>🚦 IntelliTraffic AI Dashboard</h1>
         <p>
         AI-powered traffic violation monitoring prototype using Computer Vision,
-        YOLO-based detection, vehicle tracking, evidence generation, and smart analytics.
+        YOLO-based vehicle detection, movement tracking, evidence generation,
+        and smart dashboard analytics for safer roads.
         </p>
     </div>
     """,
@@ -286,7 +288,7 @@ with tab1:
                 <div class="section-text">
                 IntelliTraffic AI analyzes traffic videos from roads and flyovers.
                 It detects vehicles, tracks movement direction, identifies violation patterns,
-                and generates evidence frames for faster review.
+                and generates evidence frames for faster review by traffic authorities.
                 <br><br>
                 <span class="pill-green">Dashboard Ready</span>
                 &nbsp;
@@ -344,10 +346,13 @@ with tab2:
     )
 
     a, b, c = st.columns(3)
+
     with a:
         st.info("Most critical: Wrong-Side Driving")
+
     with b:
         st.warning("Evidence generated for 2 records")
+
     with c:
         st.success("Ready for reviewer demo")
 
@@ -366,6 +371,7 @@ with tab3:
 
     if images:
         cols = st.columns(2)
+
         for index, image_path in enumerate(images[:6]):
             with cols[index % 2]:
                 st.image(
@@ -489,6 +495,7 @@ python -m streamlit run api_dashboard.py
     )
 
     st.subheader("Repository")
+
     st.code(
         "https://github.com/Mrigank-loop/Get-Rid-of-Traffic-vioaltions",
         language="text"
