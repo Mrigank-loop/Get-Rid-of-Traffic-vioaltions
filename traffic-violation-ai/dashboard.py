@@ -1,4 +1,4 @@
-﻿from pathlib import Path
+from pathlib import Path
 from datetime import datetime
 import pandas as pd
 import streamlit as st
@@ -6,7 +6,7 @@ import plotly.express as px
 
 st.set_page_config(
     page_title="IntelliTraffic AI",
-    page_icon="🚦",
+    page_icon="??",
     layout="wide"
 )
 
@@ -190,7 +190,7 @@ def style_plot(fig):
 
 reports, all_df = load_data()
 
-st.sidebar.title("🚦 IntelliTraffic AI")
+st.sidebar.title("?? IntelliTraffic AI")
 st.sidebar.write("Traffic Violation Intelligence")
 
 st.sidebar.markdown("---")
@@ -208,9 +208,9 @@ st.sidebar.subheader("Evidence Videos")
 
 for name, path in VIDEO_FILES.items():
     if path.exists():
-        st.sidebar.write("✅ " + name)
+        st.sidebar.write("? " + name)
     else:
-        st.sidebar.write("⚪ " + name)
+        st.sidebar.write("? " + name)
 
 st.markdown('<div class="main-title">IntelliTraffic AI</div>', unsafe_allow_html=True)
 st.markdown(
@@ -250,7 +250,7 @@ with c3:
 with c4:
     metric_card("Plate Reads", plate_reads, "OCR-based identification")
 
-st.markdown('<div class="section-title">📌 Executive Summary</div>', unsafe_allow_html=True)
+st.markdown('<div class="section-title">?? Executive Summary</div>', unsafe_allow_html=True)
 
 if total_violations >= 50:
     risk = "High"
@@ -276,7 +276,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.markdown('<div class="section-title">📊 Analytics</div>', unsafe_allow_html=True)
+st.markdown('<div class="section-title">?? Analytics</div>', unsafe_allow_html=True)
 
 chart_col1, chart_col2 = st.columns(2)
 
@@ -291,7 +291,7 @@ with chart_col1:
         text="records",
         title="Evidence Records by Module"
     )
-    st.plotly_chart(style_plot(fig), use_container_width=True)
+    st.plotly_chart(style_plot(fig), width="stretch")
 
 with chart_col2:
     status_counts = df.groupby("status").size().reset_index(name="count")
@@ -304,16 +304,16 @@ with chart_col2:
         text="count",
         title="Top Detection Status"
     )
-    st.plotly_chart(style_plot(fig), use_container_width=True)
+    st.plotly_chart(style_plot(fig), width="stretch")
 
-st.markdown('<div class="section-title">🧠 Evidence Center</div>', unsafe_allow_html=True)
+st.markdown('<div class="section-title">?? Evidence Center</div>', unsafe_allow_html=True)
 
 tab1, tab2, tab3, tab4, tab5 = st.tabs([
-    "📁 Reports",
-    "🎥 Videos",
-    "🔍 License Plate OCR",
-    "🖼 Plate Evidence",
-    "🤖 Recommendation"
+    "?? Reports",
+    "?? Videos",
+    "?? License Plate OCR",
+    "?? Plate Evidence",
+    "?? Recommendation"
 ])
 
 with tab1:
@@ -324,10 +324,10 @@ with tab1:
             continue
 
         with st.expander(f"{name} - {len(report_df)} records"):
-            st.dataframe(report_df, use_container_width=True, height=300)
+            st.dataframe(report_df, width="stretch", height=300)
 
     st.subheader("Combined Report")
-    st.dataframe(df, use_container_width=True, height=420)
+    st.dataframe(df, width="stretch", height=420)
 
 with tab2:
     available_videos = {}
@@ -353,7 +353,7 @@ with tab3:
         st.warning("No OCR reports found.")
     else:
         ocr_df = pd.concat(ocr_frames, ignore_index=True)
-        st.dataframe(ocr_df, use_container_width=True, height=350)
+        st.dataframe(ocr_df, width="stretch", height=350)
 
         if "plate_text" in ocr_df.columns:
             readable = ocr_df[ocr_df["plate_text"].fillna("").astype(str).str.len() > 3]
@@ -369,7 +369,7 @@ with tab3:
                     text="detections",
                     title="Most Detected Plates"
                 )
-                st.plotly_chart(style_plot(fig), use_container_width=True)
+                st.plotly_chart(style_plot(fig), width="stretch")
 
 with tab4:
     if not PLATE_DIR.exists():
@@ -385,7 +385,7 @@ with tab4:
 
             for i, image_path in enumerate(images[:24]):
                 with cols[i % 4]:
-                    st.image(str(image_path), caption=image_path.name, use_container_width=True)
+                    st.image(str(image_path), caption=image_path.name, width="stretch")
 
 with tab5:
     recommendation_file = DATA_DIR / "ai_recommendations.txt"

@@ -1,10 +1,10 @@
-﻿import streamlit as st
+import streamlit as st
 import pandas as pd
 from pathlib import Path
 
 st.set_page_config(
     page_title="IntelliTraffic AI Dashboard",
-    page_icon="🚦",
+    page_icon="??",
     layout="wide"
 )
 
@@ -203,8 +203,8 @@ timeline_df = pd.DataFrame(
 st.markdown(
     """
     <div class="hero">
-        <div class="badge">● Smart Demo Dashboard Active</div>
-        <h1>🚦 IntelliTraffic AI Dashboard</h1>
+        <div class="badge">? Smart Demo Dashboard Active</div>
+        <h1>?? IntelliTraffic AI Dashboard</h1>
         <p>
         AI-powered traffic violation monitoring prototype using Computer Vision,
         YOLO-based vehicle detection, movement tracking, evidence generation,
@@ -269,11 +269,11 @@ st.markdown("<br>", unsafe_allow_html=True)
 
 tab1, tab2, tab3, tab4, tab5 = st.tabs(
     [
-        "📊 Overview",
-        "🚨 Violation Records",
-        "🖼 Evidence",
-        "⚙️ Architecture",
-        "🚀 Run Instructions"
+        "?? Overview",
+        "?? Violation Records",
+        "?? Evidence",
+        "?? Architecture",
+        "?? Run Instructions"
     ]
 )
 
@@ -331,17 +331,17 @@ with tab1:
 
     with right:
         st.subheader("Violation Distribution")
-        st.bar_chart(chart_df.set_index("Violation Type"), use_container_width=True)
+        st.bar_chart(chart_df.set_index("Violation Type"), width="stretch")
 
         st.subheader("Detection Timeline")
-        st.line_chart(timeline_df.set_index("Time"), use_container_width=True)
+        st.line_chart(timeline_df.set_index("Time"), width="stretch")
 
 with tab2:
     st.subheader("Violation Records")
 
     st.dataframe(
         df,
-        use_container_width=True,
+        width="stretch",
         hide_index=True
     )
 
@@ -377,7 +377,7 @@ with tab3:
                 st.image(
                     str(image_path),
                     caption=f"Evidence: {image_path.name}",
-                    use_container_width=True
+                    width="stretch"
                 )
     else:
         st.markdown(
@@ -388,10 +388,10 @@ with tab3:
                 Evidence frames are generated locally by the detector modules.
                 For final presentation, include screenshots of:
                 <br><br>
-                • Flyover wrong-side output<br>
-                • Helmet violation output<br>
-                • Terminal violation report<br>
-                • Output evidence folder
+                � Flyover wrong-side output<br>
+                � Helmet violation output<br>
+                � Terminal violation report<br>
+                � Output evidence folder
                 </div>
             </div>
             """,
@@ -404,21 +404,21 @@ with tab4:
     st.code(
         """
 Traffic Video / CCTV Footage
-        ↓
+        ?
 OpenCV Frame Processing
-        ↓
+        ?
 YOLOv8 Object Detection
-        ↓
+        ?
 Vehicle / Rider Identification
-        ↓
+        ?
 Violation Logic Engine
-        ├── Wrong-Side Direction Tracking
-        ├── Helmet Violation Detection
-        ├── Triple Riding Prototype
-        └── Waterlogging Prototype
-        ↓
+        +-- Wrong-Side Direction Tracking
+        +-- Helmet Violation Detection
+        +-- Triple Riding Prototype
+        +-- Waterlogging Prototype
+        ?
 Evidence Frame Generation
-        ↓
+        ?
 Dashboard Analytics
         """,
         language="text"
@@ -504,7 +504,7 @@ python -m streamlit run api_dashboard.py
 st.markdown(
     """
     <div class="footer">
-    IntelliTraffic AI • Smart Traffic Violation Detection Prototype • Built for safer roads
+    IntelliTraffic AI � Smart Traffic Violation Detection Prototype � Built for safer roads
     </div>
     """,
     unsafe_allow_html=True
