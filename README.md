@@ -1,5 +1,6 @@
 # IntelliTraffic AI
-
+Live Dashboard: https://mrigank-loopget-rid-of-traffic-vioaltions-yzcykbiqhnhacypy943w.streamlit.app/
+GitHub Repository: https://github.com/Mrigank-loop/Mrigank-loopGet-Rid-of-Traffic-vioaltions
 ## AI-Powered Traffic Violation Detection and Smart-City Enforcement Intelligence
 
 IntelliTraffic AI is a computer-vision-based smart traffic monitoring prototype that converts traffic videos into actionable enforcement intelligence. The system detects traffic violations, generates evidence, performs license plate OCR, calculates severity scores, generates demo fines, maps violation hotspots, and provides dashboard-based analytics through Streamlit and FastAPI.
