@@ -1,0 +1,4 @@
+evidence_id,timestamp,frame_number,vehicle_type,plate_text,ocr_confidence,plate_crop_path,status
+PLATE_0001,2026-06-21 03:10:11,30,car,ABXOI,0.02,outputs/plate_evidence\PLATE_0001_ABXOI.jpg,PLATE_READ
+PLATE_0002,2026-06-21 03:10:43,30,truck,WCZCDD1,0.22,outputs/plate_evidence\PLATE_0002_WCZCDD1.jpg,PLATE_READ
+PLATE_0003,2026-06-21 03:10:55,60,car,PEQTFBOI,0.05,outputs/plate_evidence\PLATE_0003_PEQTFBOI.jpg,PLATE_READ
